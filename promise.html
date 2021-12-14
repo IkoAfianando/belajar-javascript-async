@@ -24,10 +24,10 @@
 
 <script>
 
-  function getProduct() {
+  function getProduct(product) {
      return new Promise(function (resolve, reject) {
           const ajax = new XMLHttpRequest();
-          ajax.open("GET", "api/product.json");
+          ajax.open("GET", `api/${product}.json`);
           ajax.onload = function() {
               if(ajax.status === 200) {
                   resolve(ajax.responseText);
@@ -39,7 +39,7 @@
       });
   }
 
-    getProduct()
+    getProduct("product")
         // .then(function (response) {
         //     return JSON.parse(response);
         // })
