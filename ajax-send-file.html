@@ -5,37 +5,44 @@
     <title>Ajax send FORM</title>
 </head>
 <body>
+<h1>Register</h1>
 <form enctype="application/x-www-form-urlencoded">
     <label for="username">Username:
         <input type="text" id="username" name="username">
     </label>
     <br>
-    <label for="password">Password:
-        <input type="password" id="password" name="password">
+    <label for="name">Name:
+        <input type="text" id="name" name="name">
     </label>
     <br>
-    <input type="button" id="login" value="Login">
+    <label for="profile">Profile:
+        <input type="file" id="profile" name="profile">
+    </label>
+    <br>
+    <input type="button" id="register" value="Register">
 </form>
 <h1 id="response"></h1>
 <script>
 
-    function doLogin() {
+    function doRegister() {
         const ajax = new XMLHttpRequest();
         ajax.open("POST", "https://hookb.in/eKN2M8oKWZUlwQmmwRWM");
         ajax.onload = function () {
             const response = document.getElementById("response");
             response.innerText = ajax.responseText;
         }
-        ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-        const form = new URLSearchParams();
+        const form = new FormData();
         form.append("username", document.getElementById("username").value);
-        form.append("password", document.getElementById("password").value);
+        form.append("name", document.getElementById("name").value);
+        const files = document.getElementById("profile").files;
+        const firstFile = files.item(0);
+        form.append("profile", firstFile);
 
         ajax.send(form);
     }
 
-    document.getElementById("login").onclick = doLogin;
+    document.getElementById("register").onclick = doRegister;
 
 </script>
 </body>

@@ -19,7 +19,7 @@
 <h1 id="response"></h1>
 <script>
 
-    function doLogin() {
+    function doForm() {
         const ajax = new XMLHttpRequest();
         ajax.open("POST", "https://hookb.in/eKN2M8oKWZUlwQmmwRWM");
         ajax.onload = function () {
@@ -35,7 +35,7 @@
         ajax.send(form);
     }
 
-    document.getElementById("login").onclick = doLogin;
+    document.getElementById("login").onclick = doForm;
 
 </script>
 </body>
