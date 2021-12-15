@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slow</title>
+</head>
+<body>
+<button id="buttonTask">ClickMe</button>
+<script>
+
+    function slowLog(total) {
+        for(let i = 0; i < total; i++) {
+            console.log(i);
+        }
+    }
+
+    document.getElementById("buttonTask").onclick = function () {
+        console.log("Start");
+        slowLog(1);
+        console.log("End");
+    };
+
+</script>
+</body>
+</html>
