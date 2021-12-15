@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async</title>
+</head>
+<body>
+<script>
+
+    // Promise<String>
+    function getNamePromise() {
+        return new Promise(function (resolve, reject) {
+            resolve("Iko Promise in Async");
+            reject("Error");
+        })
+    }
+
+    // Promise<Promise<String>>
+    async function getName() {
+        return "Iko";
+    }
+
+    getName()
+        .then((name) => console.log(name))
+        .catch((error) => console.log(error))
+
+    getNamePromise()
+        .then((name) => console.log(name));
+
+</script>
+</body>
+</html>
